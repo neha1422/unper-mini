@@ -1,28 +1,16 @@
 {
-  "name": "cems-pro-max",
+  "name": "cems-pro",
   "version": "1.0.0",
-  "description": "Central Electoral Management System - Premium DBMS Project",
+  "description": "Clean CEMS Electoral Dashboard",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "node app.js"
+    "start": "node app.js"
   },
-  "keywords": [
-    "dbms",
-    "mysql",
-    "nodejs",
-    "express",
-    "ejs",
-    "electoral-system",
-    "college-project"
-  ],
-  "author": "Neha",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "body-parser": "^2.2.2",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "mysql2": "^3.11.3"
+    "express-session": "^1.19.0",
+    "mysql2": "^3.10.3"
   }
 }

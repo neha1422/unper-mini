@@ -1,5 +1,6 @@
 -- database.sql
--- FINAL FIXED VERSION
+-- UPDATED VERSION
+-- 5000+ ENTRIES
 -- MATCHES app.js ROUTES
 
 DROP DATABASE IF EXISTS unper;
@@ -29,7 +30,7 @@ CREATE TABLE migration_requests(
 );
 
 -- ======================
--- 320 DATASET
+-- 5000 DATASET
 -- ======================
 
 DELIMITER $$
@@ -38,7 +39,7 @@ CREATE PROCEDURE seed_data()
 BEGIN
     DECLARE i INT DEFAULT 1;
 
-    WHILE i <= 320 DO
+    WHILE i <= 5000 DO
 
         INSERT INTO voters(
             name,

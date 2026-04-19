@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User Panel</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="dark">
+
+<div class="layout">
+
+<aside class="sidebar">
+<div class="logo">CEMS</div>
+
+<a href="/user" class="active">User Panel</a>
+<a href="/migration">Migration</a>
+<a href="/logout">Logout</a>
+</aside>
+
+<main class="main">
+
+<div class="topbar">
+<h1>Welcome <%= user.username %></h1>
+<p>User Access Portal</p>
+</div>
+
+<section class="card">
+<h3>Logged in as</h3>
+<span><%= user.role %></span>
+</section>
+
+</main>
+</div>
+
+</body>
+</html>

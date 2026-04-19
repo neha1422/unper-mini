@@ -372,4 +372,56 @@ body.dark .pill{
   flex-direction:column;
 }
 
+/* CSV EXPORT BUTTON */
+.csvbtn{
+  display:block;
+  width:100%;
+  margin-top:14px;
+  text-align:center;
+  text-decoration:none;
+  background:#ffffff;
+  color:#0f4aa3;
+  padding:14px;
+  border-radius:16px;
+  font-size:16px;
+  font-weight:800;
+  border:2px solid #dbeafe;
+  transition:.25s;
+}
+
+.csvbtn:hover{
+  background:#eff6ff;
+}
+
+body.dark .csvbtn{
+  background:#111827;
+  color:#93c5fd;
+  border:1px solid #334155;
+}
+
+body.dark .csvbtn:hover{
+  background:#1e293b;
+}
+
+.logoutbtn{
+display:block;
+width:100%;
+margin-top:12px;
+padding:14px;
+text-align:center;
+text-decoration:none;
+border-radius:14px;
+background:#dc2626;
+color:white;
+font-weight:800;
+transition:.25s;
+}
+
+.logoutbtn:hover{
+background:#b91c1c;
+}
+
+body.dark .logoutbtn{
+background:#991b1b;
+}
 }

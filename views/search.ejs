@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="main">
+
+<h1>Search Elector</h1>
+
+<form action="/search">
+<input type="text" name="q" value="<%= q %>" placeholder="Search name/state">
+<button>Search</button>
+</form>
+
+<table>
+<tr><th>ID</th><th>Name</th><th>Age</th><th>State</th></tr>
+
+<% voters.forEach(v=>{ %>
+<tr>
+<td><%= v.id %></td>
+<td><%= v.name %></td>
+<td><%= v.age %></td>
+<td><%= v.state %></td>
+</tr>
+<% }) %>
+
+</table>
+
+</div>
+</body>
+</html>

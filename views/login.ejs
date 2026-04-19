@@ -1,0 +1,145 @@
+<!-- views/login.ejs -->
+<!-- PREMIUM USER LOGIN PAGE -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CEMS Login</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Inter,Arial,sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
+url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+}
+
+.loginbox{
+width:430px;
+padding:38px;
+border-radius:24px;
+background:rgba(8,15,40,.78);
+backdrop-filter:blur(14px);
+box-shadow:0 25px 50px rgba(0,0,0,.35);
+color:white;
+}
+
+.logo{
+font-size:38px;
+font-weight:900;
+color:#3b82f6;
+margin-bottom:6px;
+}
+
+.sub{
+font-size:14px;
+color:#94a3b8;
+margin-bottom:28px;
+}
+
+h2{
+font-size:34px;
+margin-bottom:26px;
+font-weight:800;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:700;
+font-size:15px;
+}
+
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+margin-bottom:18px;
+font-size:15px;
+outline:none;
+background:#e2e8f0;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+background:#2563eb;
+color:white;
+font-size:18px;
+font-weight:800;
+cursor:pointer;
+transition:.25s;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+.error{
+background:#dc2626;
+padding:12px;
+border-radius:12px;
+margin-bottom:16px;
+font-weight:700;
+}
+
+.bottom{
+margin-top:18px;
+text-align:center;
+font-size:14px;
+color:#cbd5e1;
+}
+
+.bottom span{
+color:#3b82f6;
+font-weight:700;
+}
+</style>
+
+</head>
+<body>
+
+<form class="loginbox" method="POST" action="/login">
+
+<div class="logo">CEMS</div>
+<div class="sub">Central Electoral Management System</div>
+
+<h2>Login</h2>
+
+<% if(msg){ %>
+<div class="error"><%= msg %></div>
+<% } %>
+
+<label>Username</label>
+<input type="text" name="username" placeholder="Enter username" required>
+
+<label>Password</label>
+<input type="password" name="password" placeholder="Enter password" required>
+
+<button type="submit">Sign In</button>
+
+<div class="bottom">
+Admin / User access portal
+</div>
+
+</form>
+
+</body>
+</html>
