@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CEMS Migration</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="dark">
+
+<div class="layout">
+
+<aside class="sidebar">
+<div class="logo">CEMS</div>
+
+<a href="/">Dashboard</a>
+<a href="/search">Search Elector</a>
+<a href="/migration" class="active">New Migration</a>
+
+<button class="themebtn" onclick="toggleTheme()">🌙 Dark Mode</button>
+</aside>
+
+<main class="main">
+
+<div class="topbar">
+<h1>Migration Request Form</h1>
+<p>Transfer voter registration between states</p>
+</div>
+
+<% if(msg){ %>
+<div class="success"><%= msg %></div>
+<% } %>
+
+<div class="formbox">
+
+<form action="/migration" method="POST">
+
+<label>Voter Numeric ID</label>
+<input type="number" name="voter_id" required>
+
+<label>Current State</label>
+<select name="from_state" required>
+<option value="">Select Current State</option>
+<option value="Delhi">Delhi</option>
+<option value="Punjab">Punjab</option>
+<option value="UP">UP</option>
+<option value="Maharashtra">Maharashtra</option>
+<option value="Gujarat">Gujarat</option>
+</select>
+
+<label>New State</label>
+<select name="to_state" required>
+<option value="">Select New State</option>
+<option value="Delhi">Delhi</option>
+<option value="Punjab">Punjab</option>
+<option value="UP">UP</option>
+<option value="Maharashtra">Maharashtra</option>
+<option value="Gujarat">Gujarat</option>
+</select>
+
+<button type="submit">Submit Request</button>
+
+</form>
+
+</div>
+
+</main>
+</div>
+
+<script>
+function toggleTheme(){
+ document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!-- views/index.ejs -->
+<!-- FULL UPDATED FILE WITH EXPORT CSV BUTTON -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CEMS Dashboard</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+<div class="logo">CEMS</div>
+
+<a href="/" class="active">Dashboard</a>
+<a href="/search">Search Elector</a>
+<a href="/migration">Migration Request</a>
+
+<button onclick="toggleTheme()" class="themebtn">
+🌙 Toggle Theme
+</button>
+
+<!-- NEW CSV EXPORT -->
+<a href="/export-csv" class="csvbtn">
+⬇ Export Records (.CSV)
+</a>
+
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<div class="topbar">
+<h1>Central Electoral Dashboard</h1>
+<p>Unified Citizen Electoral Management System</p>
+</div>
+
+<% if(msg){ %>
+<div class="success"><%= msg %></div>
+<% } %>
+
+<!-- CARDS -->
+<section class="cards">
+
+<div class="card">
+<h3>Total Electors</h3>
+<span><%= total %></span>
+</div>
+
+<div class="card">
+<h3>Migrations Completed</h3>
+<span><%= done %></span>
+</div>
+
+<div class="card">
+<h3>Polling Stations</h3>
+<span>5971</span>
+</div>
+
+</section>
+
+<!-- GRAPH -->
+<section class="charts">
+
+<div class="chartbox fullgraph">
+<h3>State-wise Electors</h3>
+<canvas id="barChart"></canvas>
+</div>
+
+</section>
+
+<!-- SEARCH -->
+<form action="/search" method="GET" class="searchbar">
+<input type="text" name="q" placeholder="Search by Name or State">
+<button type="submit">Search</button>
+</form>
+
+<!-- TABLE -->
+<section class="tablebox">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>State</th>
+<th>Status</th>
+</tr>
+
+<% voters.forEach(v=>{ %>
+
+<tr>
+<td><%= v.id %></td>
+<td><%= v.name %></td>
+<td><%= v.age %></td>
+<td><%= v.state %></td>
+<td><span class="pill"><%= v.status %></span></td>
+</tr>
+
+<% }) %>
+
+</table>
+
+</section>
+
+</main>
+</div>
+
+<script>
+
+/* THEME */
+function toggleTheme(){
+
+ document.body.classList.toggle("dark");
+
+ localStorage.setItem(
+   "theme",
+   document.body.classList.contains("dark") ? "dark":"light"
+ );
+
+}
+
+window.onload=function(){
+
+ if(localStorage.getItem("theme")==="dark"){
+   document.body.classList.add("dark");
+ }
+
+}
+
+/* BAR GRAPH */
+new Chart(document.getElementById("barChart"),{
+
+type:"bar",
+
+data:{
+labels:["Delhi","Punjab","UP","Maharashtra","Gujarat"],
+
+datasets:[{
+label:"Electors",
+data:[64,64,64,64,64],
+borderWidth:1
+}]
+},
+
+options:{
+responsive:true,
+plugins:{
+legend:{display:false}
+}
+}
+
+});
+
+</script>
+
+</body>
+</html>
